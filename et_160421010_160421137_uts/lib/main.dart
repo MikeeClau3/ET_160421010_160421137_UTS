@@ -1,6 +1,7 @@
 // ================================ JIKA GAMBAR TIDAK BERJALAN ===========================================
 // flutter run -d chrome --web-renderer html
 
+import 'package:et_160421010_160421137_uts/screen/gameScreen.dart';
 import 'package:et_160421010_160421137_uts/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
       title: 'MEMORIMAGE',
       routes: {
         'login': (context) => const Login(),
+        'gameScreen': (context) => GameScreen(),
         //'highScore': (context) => const highScore(), to be added
       },
       theme: ThemeData(
@@ -103,12 +105,47 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      body: const Center(
+      body:  Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               'Welcome to MEMORIMAGE!',
+            ),
+            Text(
+              'Cara Bermain:',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              '1. Sistem akan menampilkan 5 gambar secara acak selama 3 detik. Ingatlah gambar-gambar tersebut.',
+              style: TextStyle(fontSize: 16),
+            ),
+            Text(
+              '2. Setelah itu, sistem akan menampilkan 4 opsi gambar, di mana salah satunya adalah gambar yang harus',
+              style: TextStyle(fontSize: 16),
+            ),
+            Text(
+              ' diingat oleh pemain, dan 3 lainnya adalah gambar pengecoh yang mirip.',
+              style: TextStyle(fontSize: 16),
+            ),
+            Text(
+              '3. Pengguna memiliki waktu 30 detik untuk memilih gambar yang benar.',
+              style: TextStyle(fontSize: 16),
+            ),
+            Text(
+              '4. Jika waktu habis, pertanyaan tersebut akan dilewati tanpa mendapatkan poin.',
+              style: TextStyle(fontSize: 16),
+            ),
+            Text(
+              '5. Tujuan pemain adalah memilih gambar yang sesuai dengan yang ditampilkan sebelumnya.',
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'gameScreen');
+              },
+              child: Text('Play'),
             ),
           ],
         ),
